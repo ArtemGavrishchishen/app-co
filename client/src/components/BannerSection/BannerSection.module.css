@@ -1,0 +1,17 @@
+.section {
+  height: 655px;
+  background: linear-gradient(92.09deg, #255d8b 2.29%, #3a80ba 96.79%);
+}
+
+.title {
+  font-style: normal;
+  font-size: 48px;
+  color: #ffffff;
+}
+
+.text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  color: #ffffff;
+}
