@@ -10,12 +10,26 @@
   margin-top: -1px;
 }
 
+@media screen and (max-width: 992px) {
+  .container {
+    background: linear-gradient(93.19deg, #255d8b 2.29%, #3a80ba 96.79%);
+    padding: 10px;
+    height: 400px;
+  }
+}
+
 .content {
   width: 580px;
 }
 
 .img {
   margin: 0 auto;
+}
+
+@media screen and (max-width: 992px) {
+  .img {
+    display: none;
+  }
 }
 
 .title {
@@ -37,12 +51,18 @@
   width: 154px;
   height: 56px;
   text-decoration: none;
-  background: #ffffff;
+  background: rgb(255, 255, 255);
   border-radius: 8px;
   text-align: center;
   font-size: 16px;
-  color: #3a80ba;
+  color: rgb(58, 128, 186);
   line-height: 56px;
+  transition-duration: 0.4s;
+}
+
+.btn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 @media (min-width: 1439px) {

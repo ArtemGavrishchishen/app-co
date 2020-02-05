@@ -8,7 +8,7 @@ router.get('/', users, statistic, (req, res) => {
   const { body } = req;
   const page = body.page || 1;
   const view = body.view || 16;
-
+  console.log(req);
   try {
     const userList = req.users;
     const statisticList = req.statistic;
@@ -37,7 +37,9 @@ router.get('/', users, statistic, (req, res) => {
     // console.log('resultData', resultData);
 
     // const massage = 'Test routes: Database connection successful';
-    res.status(200).json(resultData);
+    res
+      .status(200)
+      .json({ users: resultData, maxPage: Math.ceil(users.length / view) });
   } catch (e) {
     res.status(500).json({ message: e });
   }

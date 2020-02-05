@@ -1,6 +1,6 @@
-import React from "react";
-import Logo from "../Logo";
-import styles from "./AppHeader.module.css";
+import React from 'react';
+import Logo from '../Logo';
+import styles from './AppHeader.module.css';
 
 const AppHeader = () => {
   return (

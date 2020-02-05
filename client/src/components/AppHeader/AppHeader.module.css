@@ -7,6 +7,11 @@
   padding: 0 130px;
 }
 
+@media screen and (max-width: 992px) {
+  .container {
+    padding: 10px;
+  }
+}
 @media (min-width: 1439px) {
   .header {
     display: flex;
@@ -20,6 +25,7 @@
     height: 50px;
     background-color: #255d8b;
   }
+
   .rightBgc {
     position: absolute;
     right: -1495px;

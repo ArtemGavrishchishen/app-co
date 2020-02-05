@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.btn {
+  width: 105px;
+  height: 20px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #cccccc;
+  text-decoration: none;
+}
+
+.title {
+  width: 253px;
+  height: 39px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 39px;
+  color: #1a1a1a;
+}
+
+.th {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  background: #3a80ba;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.td {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #1a1a1a;
+  background: #fbfbfb;
+}
+
+.tr td {
+  background-color: #fbfbfb;
+}
+
+.tr:nth-child(even) td {
+  background-color: #f1f1f1;
+}

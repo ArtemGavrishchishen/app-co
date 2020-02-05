@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-
-// import styles from './UserPage.module.css';
+import { Link } from 'react-router-dom';
+import routes from '../../configs/routes';
+import styles from './UserPage.module.css';
 
 class UserPage extends Component {
   state = { user: {}, statistic: [], error: false };
@@ -33,7 +34,16 @@ class UserPage extends Component {
 
     return (
       <>
-        <div>{user.first_name}</div>
+        <Link className={styles.btn} to={routes.MAIN}>
+          Main page >
+        </Link>
+        <Link className={styles.btn} to={routes.USERS}>
+          Users page >
+        </Link>
+        <p className={styles.name}>
+          <span>{user.first_name}</span>
+          <span>{user.last_name}</span>
+        </p>
       </>
     );
   }

@@ -1,12 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import routes from "../../configs/routes";
-import mobile from "./assets/mobile.png";
-import styles from "./BannerSection.module.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import routes from '../../configs/routes';
+import mobile from './assets/mobile.png';
+import styles from './BannerSection.module.css';
 
 const BannerSection = () => {
   return (
-    <div className={styles.section}>
+    <section className={styles.section}>
       <div className={styles.container}>
         <div className={styles.leftBgc} />
         <div className={styles.content}>
@@ -24,7 +24,7 @@ const BannerSection = () => {
         <img className={styles.img} src={mobile} alt="mobile" />
         <div className={styles.rightBgc} />
       </div>
-    </div>
+    </section>
   );
 };
 

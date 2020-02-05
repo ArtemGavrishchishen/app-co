@@ -1,0 +1,23 @@
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  background-color: #d8e6f3;
+  font-size: 14px;
+  padding: 8px 20px;
+  cursor: pointer;
+  border: 0px;
+  outline: 0px;
+  transition: background-color 0.2s linear;
+  margin: 0 25px;
+}
+.btn:hover,
+.btn:focus {
+  background-color: #afcde7;
+}
+.pageNumber {
+  line-height: 32px;
+  font-weight: 700;
+}

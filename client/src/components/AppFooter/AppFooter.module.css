@@ -1,5 +1,6 @@
 .container {
   display: flex;
+  justify-content: space-between;
   position: relative;
   max-width: 1440px;
   height: 185px;
@@ -9,15 +10,54 @@
   padding: 0 130px;
 }
 
+@media screen and (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    background: linear-gradient(93.19deg, #255d8b 2.29%, #3a80ba 96.79%);
+    height: 150px;
+  }
+}
 .content {
   display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   position: absolute;
   bottom: 20px;
-  justify-content: space-between;
+}
+
+@media screen and (max-width: 992px) {
+  .content {
+    flex-direction: column;
+  }
+}
+
+.logo {
+  margin-right: 300px;
+}
+
+@media screen and (max-width: 992px) {
+  .logo {
+    margin-right: 0px;
+  }
 }
 
 .text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+  margin-right: 300px;
+}
+
+@media screen and (max-width: 992px) {
+  .text {
+    margin-right: 0px;
+  }
+}
+
+.year {
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
