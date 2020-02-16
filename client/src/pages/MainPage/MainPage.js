@@ -14,7 +14,7 @@ const MainPage = () => {
         <OurWorkSection />
         <CallSection />
         <PricingSection />
-        <ContactForm />
+        {/* <ContactForm /> */}
       </div>
     </>
   );

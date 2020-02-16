@@ -22,7 +22,7 @@ function App() {
           <Redirect to={routes.MAIN} />
         </Switch>
       </main>
-      <AppFooter />
+      {/* <AppFooter /> */}
     </>
   );
 }

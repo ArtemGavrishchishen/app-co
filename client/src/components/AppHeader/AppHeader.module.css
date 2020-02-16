@@ -1,37 +1,15 @@
-.container {
-  position: relative;
-  max-width: 1440px;
-  flex: 1 0 auto;
+.header {
   background: linear-gradient(92.09deg, #255d8b 2.29%, #3a80ba 96.79%);
+}
+
+.container {
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 130px;
+  padding: 10px 80px;
 }
 
-@media screen and (max-width: 992px) {
+@media (min-width: 600px) {
   .container {
-    padding: 10px;
-  }
-}
-@media (min-width: 1439px) {
-  .header {
-    display: flex;
-    overflow: hidden;
-  }
-  .leftBgc {
-    position: absolute;
-    left: -1495px;
-    top: 0;
-    width: 1500px;
-    height: 50px;
-    background-color: #255d8b;
-  }
-
-  .rightBgc {
-    position: absolute;
-    right: -1495px;
-    top: 0;
-    width: 1500px;
-    height: 50px;
-    background-color: #3a80ba;
+    padding: 10px 130px;
   }
 }

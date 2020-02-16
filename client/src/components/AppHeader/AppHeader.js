@@ -7,9 +7,7 @@ const AppHeader = () => {
     <>
       <header className={styles.header}>
         <div className={styles.container}>
-          <div className={styles.leftBgc} />
           <Logo />
-          <div className={styles.rightBgc} />
         </div>
       </header>
     </>

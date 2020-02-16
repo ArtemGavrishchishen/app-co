@@ -10,10 +10,10 @@ const OurWorkSection = () => {
     <section className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.title}>
-          Why{' '}
+          Why
           <span>
             small business owners <br />
-            love{' '}
+            love
           </span>
           AppCo?
         </h2>
