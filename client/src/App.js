@@ -1,13 +1,12 @@
-import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import React from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
 
-import AppHeader from './components/AppHeader';
-import AppFooter from './components/AppFooter';
-import MainPage from './pages/MainPage';
-import UsersPage from './pages/UsersPage';
-import UserPage from './pages/UserPage';
+import AppHeader from "./components/AppHeader";
+import MainPage from "./pages/MainPage";
+import UsersPage from "./pages/UsersPage";
+import UserPage from "./pages/UserPage";
 
-import routes from './configs/routes';
+import routes from "./configs/routes";
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
           <Redirect to={routes.MAIN} />
         </Switch>
       </main>
-      {/* <AppFooter /> */}
     </>
   );
 }
