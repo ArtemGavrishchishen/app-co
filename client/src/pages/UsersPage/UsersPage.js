@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-// import routes from '../../configs/routes';
-import UsersList from '../../components/UsersList';
-import Pagination from '../../components/Pagination';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import routes from "../../configs/routes";
+import UsersList from "../../components/UsersList";
+import Pagination from "../../components/Pagination";
+
+import styles from "./UsersPage.module.css";
 
 class UsersPage extends Component {
   state = { users: [], maxPage: 1, currentPage: 1, error: false };
@@ -11,13 +13,17 @@ class UsersPage extends Component {
     this.getUserList();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const { currentPage } = this.state;
+    if (currentPage !== prevState.currentPage) {
+      this.getUserList();
+    }
+  }
+
   getUserList = async () => {
     try {
       const { currentPage } = this.state;
-      console.log(currentPage);
-      const response = await fetch('/users', {
-        body: JSON.stringify({ page: 3 })
-      });
+      const response = await fetch(`/users?page=${currentPage}`);
       if (response.ok) {
         const data = await response.json();
 
@@ -48,17 +54,24 @@ class UsersPage extends Component {
     this.setState({ currentPage: next });
   };
 
+  onChangePage = page => {
+    this.setState({ currentPage: page });
+    console.log("page", page);
+  };
+
   render() {
-    const { users, maxPage, currentPage } = this.state;
+    const { users, maxPage } = this.state;
     return (
       <>
-        <UsersList users={users} />
-        <Pagination
-          maxPage={maxPage}
-          currentPage={currentPage}
-          prev={this.prevPage}
-          next={this.nextPage}
-        />
+        <div className={styles.container}>
+          <Link className={styles.btn} to={routes.MAIN}>
+            Main page >
+          </Link>
+        </div>
+        <div className={styles.users}>
+          <UsersList users={users} />
+        </div>
+        <Pagination totalPages={maxPage} onChangePage={this.onChangePage} />
       </>
     );
   }

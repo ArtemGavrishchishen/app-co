@@ -1,14 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import routes from '../../configs/routes';
-import styles from './UsersList.module.css';
+import React from "react";
+import styles from "./UsersList.module.css";
 
 const UsersList = ({ users = [] }) => (
   <div className={styles.section}>
     <div className={styles.container}>
-      <Link className={styles.btn} to={routes.MAIN}>
-        Main page >
-      </Link>
       <h3 className={styles.title}>Users statistics</h3>
       <table className={styles.table}>
         <thead className={styles.thead}>
