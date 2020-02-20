@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./UsersList.module.css";
 
-const UsersList = ({ users = [] }) => (
+const UsersList = ({ users = [], onSelectUser }) => (
   <div className={styles.section}>
     <div className={styles.container}>
       <h3 className={styles.title}>Users statistics</h3>
@@ -30,7 +30,7 @@ const UsersList = ({ users = [] }) => (
               total_cliks,
               total_page_views
             }) => (
-              <tr key={id} className={styles.tr}>
+              <tr key={id} className={styles.tr} onClick={() => onSelectUser(id)}>
                 <td className={styles.td}>{id}</td>
                 <td className={styles.td}>{first_name}</td>
                 <td className={styles.td}>{last_name}</td>

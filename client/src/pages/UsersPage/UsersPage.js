@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import routes from "../../configs/routes";
 import UsersList from "../../components/UsersList";
 import Pagination from "../../components/Pagination";
@@ -59,6 +59,14 @@ class UsersPage extends Component {
     console.log("page", page);
   };
 
+  onSelectUser = id => {
+    const { history } = this.props;
+
+    history.push({
+      pathname: `/user/${id}`
+    });
+  };
+
   render() {
     const { users, maxPage } = this.state;
     return (
@@ -69,7 +77,7 @@ class UsersPage extends Component {
           </Link>
         </div>
         <div className={styles.users}>
-          <UsersList users={users} />
+          <UsersList users={users} onSelectUser={this.onSelectUser} />
         </div>
         <Pagination totalPages={maxPage} onChangePage={this.onChangePage} />
       </>
@@ -77,4 +85,4 @@ class UsersPage extends Component {
   }
 }
 
-export default UsersPage;
+export default withRouter(UsersPage);

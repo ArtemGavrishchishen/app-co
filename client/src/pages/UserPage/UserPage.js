@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import routes from '../../configs/routes';
-import styles from './UserPage.module.css';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import ClicksSection from "../../components/ClicksSection";
+import routes from "../../configs/routes";
+import styles from "./UserPage.module.css";
 
 class UserPage extends Component {
-  state = { user: {}, statistic: [], error: false };
+  state = { user: {}, clicks: [], views: [], error: false };
 
   componentDidMount() {
     const { match } = this.props;
@@ -14,13 +16,50 @@ class UserPage extends Component {
     this.getUser(id);
   }
 
+  formatDate = date => {
+    let months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec"
+    ];
+
+    return `${date.getDate()} ${
+      months[date.getMonth()]
+    } ${date.getFullYear()} `;
+  };
+
   getUser = async id => {
     try {
       const response = await fetch(`/user/${id}`);
       if (response.ok) {
         const data = await response.json();
+        const user = data.user;
+        const statistic = data.statistic;
 
-        this.setState({ user: data.user, statistic: data.statistic });
+        const clicks = statistic.map(item => {
+          return {
+            date: this.formatDate(new Date(item.date)),
+            clicks: item.clicks
+          };
+        });
+
+        const views = statistic.map(item => {
+          return {
+            date: this.formatDate(new Date(item.date)),
+            views: item.page_views
+          };
+        });
+
+        this.setState({ user: user, clicks: clicks, views: views });
       } else {
         this.setState({ error: true });
       }
@@ -30,8 +69,7 @@ class UserPage extends Component {
   };
 
   render() {
-    const { user } = this.state;
-
+    const { user, clicks } = this.state;
     return (
       <>
         <Link className={styles.btn} to={routes.MAIN}>
@@ -44,6 +82,7 @@ class UserPage extends Component {
           <span>{user.first_name}</span>
           <span>{user.last_name}</span>
         </p>
+        {clicks.length > 0 && <ClicksSection data={clicks} />}
       </>
     );
   }
