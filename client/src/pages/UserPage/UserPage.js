@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import ClicksSection from "../../components/ClicksSection";
+import Statistic from "../../components/Statistic";
+import Footer from "../../components/Footer";
+
 import routes from "../../configs/routes";
 import styles from "./UserPage.module.css";
 
@@ -48,14 +50,14 @@ class UserPage extends Component {
         const clicks = statistic.map(item => {
           return {
             date: this.formatDate(new Date(item.date)),
-            clicks: item.clicks
+            value: item.clicks
           };
         });
 
         const views = statistic.map(item => {
           return {
             date: this.formatDate(new Date(item.date)),
-            views: item.page_views
+            value: item.page_views
           };
         });
 
@@ -69,7 +71,7 @@ class UserPage extends Component {
   };
 
   render() {
-    const { user, clicks } = this.state;
+    const { user, clicks, views } = this.state;
     return (
       <>
         <Link className={styles.btn} to={routes.MAIN}>
@@ -82,7 +84,9 @@ class UserPage extends Component {
           <span>{user.first_name}</span>
           <span>{user.last_name}</span>
         </p>
-        {clicks.length > 0 && <ClicksSection data={clicks} />}
+        {clicks.length > 0 && <Statistic data={clicks} title="Clicks" />}
+        {views.length > 0 && <Statistic data={views} title="Views" />}
+        <Footer />
       </>
     );
   }

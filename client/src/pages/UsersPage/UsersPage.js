@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import routes from "../../configs/routes";
+
 import UsersList from "../../components/UsersList";
 import Pagination from "../../components/Pagination";
+import Footer from "../../components/Footer";
 
 import styles from "./UsersPage.module.css";
 
@@ -80,6 +82,7 @@ class UsersPage extends Component {
           <UsersList users={users} onSelectUser={this.onSelectUser} />
         </div>
         <Pagination totalPages={maxPage} onChangePage={this.onChangePage} />
+        <Footer />
       </>
     );
   }

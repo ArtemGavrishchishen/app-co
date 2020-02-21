@@ -8,14 +8,30 @@ const UsersList = ({ users = [], onSelectUser }) => (
       <table className={styles.table}>
         <thead className={styles.thead}>
           <tr className={styles.tr}>
-            <th className={styles.th}>Id</th>
-            <th className={styles.th}>First name</th>
-            <th className={styles.th}>Last name</th>
-            <th className={styles.th}>Email</th>
-            <th className={styles.th}>Gender</th>
-            <th className={styles.th}>IP adress</th>
-            <th className={styles.th}>Total clicks</th>
-            <th className={styles.th}>Total page views</th>
+            <th className={styles.th} scope="col">
+              Id
+            </th>
+            <th className={styles.th} scope="col">
+              First name
+            </th>
+            <th className={styles.th} scope="col">
+              Last name
+            </th>
+            <th className={styles.th} scope="col">
+              Email
+            </th>
+            <th className={styles.th} scope="col">
+              Gender
+            </th>
+            <th className={styles.th} scope="col">
+              IP adress
+            </th>
+            <th className={styles.th} scope="col">
+              Total clicks
+            </th>
+            <th className={styles.th} scope="col">
+              Total page views
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -30,15 +46,35 @@ const UsersList = ({ users = [], onSelectUser }) => (
               total_cliks,
               total_page_views
             }) => (
-              <tr key={id} className={styles.tr} onClick={() => onSelectUser(id)}>
-                <td className={styles.td}>{id}</td>
-                <td className={styles.td}>{first_name}</td>
-                <td className={styles.td}>{last_name}</td>
-                <td className={styles.td}>{email}</td>
-                <td className={styles.td}>{gender}</td>
-                <td className={styles.td}>{ip_address}</td>
-                <td className={styles.td}>{total_cliks}</td>
-                <td className={styles.td}>{total_page_views}</td>
+              <tr
+                key={id}
+                className={styles.tr}
+                onClick={() => onSelectUser(id)}
+              >
+                <td className={styles.td} data-label="Id">
+                  {id}
+                </td>
+                <td className={styles.td} data-label="First name">
+                  {first_name}
+                </td>
+                <td className={styles.td} data-label="Last name">
+                  {last_name}
+                </td>
+                <td className={styles.td} data-label="Email">
+                  {email}
+                </td>
+                <td className={styles.td} data-label="Gender">
+                  {gender}
+                </td>
+                <td className={styles.td} data-label="IP adress">
+                  {ip_address}
+                </td>
+                <td className={styles.td} data-label="Total clicks">
+                  {total_cliks}
+                </td>
+                <td className={styles.td} data-label="Total page views">
+                  {total_page_views}
+                </td>
               </tr>
             )
           )}
