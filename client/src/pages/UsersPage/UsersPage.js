@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
-import routes from "../../configs/routes";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
-import UsersList from "../../components/UsersList";
-import Pagination from "../../components/Pagination";
-import Footer from "../../components/Footer";
+import Breadcrumbs from '../../components/Breadcrumbs';
+import UsersList from '../../components/UsersList';
+import Pagination from '../../components/Pagination';
+import Footer from '../../components/Footer';
 
-import styles from "./UsersPage.module.css";
+import styles from './UsersPage.module.css';
 
 class UsersPage extends Component {
   state = { users: [], maxPage: 1, currentPage: 1, error: false };
@@ -58,7 +58,7 @@ class UsersPage extends Component {
 
   onChangePage = page => {
     this.setState({ currentPage: page });
-    console.log("page", page);
+    console.log('page', page);
   };
 
   onSelectUser = id => {
@@ -74,10 +74,9 @@ class UsersPage extends Component {
     return (
       <>
         <div className={styles.container}>
-          <Link className={styles.btn} to={routes.MAIN}>
-            Main page >
-          </Link>
+          <Breadcrumbs />
         </div>
+
         <div className={styles.users}>
           <UsersList users={users} onSelectUser={this.onSelectUser} />
         </div>

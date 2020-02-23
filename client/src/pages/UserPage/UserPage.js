@@ -1,12 +1,11 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
-import Statistic from "../../components/Statistic";
-import Footer from "../../components/Footer";
+import Breadcrumbs from '../../components/Breadcrumbs';
+import Statistic from '../../components/Statistic';
+import Footer from '../../components/Footer';
 
-import routes from "../../configs/routes";
-import styles from "./UserPage.module.css";
+import styles from './UserPage.module.css';
 
 class UserPage extends Component {
   state = { user: {}, clicks: [], views: [], error: false };
@@ -20,18 +19,18 @@ class UserPage extends Component {
 
   formatDate = date => {
     let months = [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec"
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec'
     ];
 
     return `${date.getDate()} ${
@@ -74,16 +73,19 @@ class UserPage extends Component {
     const { user, clicks, views } = this.state;
     return (
       <>
-        <Link className={styles.btn} to={routes.MAIN}>
-          Main page >
-        </Link>
-        <Link className={styles.btn} to={routes.USERS}>
-          Users page >
-        </Link>
-        <p className={styles.name}>
-          <span>{user.first_name}</span>
-          <span>{user.last_name}</span>
-        </p>
+        <div className={styles.container}>
+          <Breadcrumbs
+            item={{
+              to: `${user.id}`,
+              label: `${user.first_name} ${user.last_name}`
+            }}
+          />
+          <p className={styles.name}>
+            <span>{user.first_name} </span>
+            <span>{user.last_name}</span>
+          </p>
+        </div>
+
         {clicks.length > 0 && <Statistic data={clicks} title="Clicks" />}
         {views.length > 0 && <Statistic data={views} title="Views" />}
         <Footer />

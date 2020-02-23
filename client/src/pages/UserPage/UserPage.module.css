@@ -1,12 +1,10 @@
-.btn {
-  width: 105px;
-  height: 20px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
-  color: #cccccc;
-  text-decoration: none;
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 80px;
+  padding-top: 25px;
 }
 
 .name {
@@ -15,4 +13,11 @@
   font-size: 32px;
   line-height: 39px;
   color: #1a1a1a;
+}
+
+@media (min-width: 600px) {
+  .container {
+    padding: 0 130px;
+    padding-top: 25px;
+  }
 }
