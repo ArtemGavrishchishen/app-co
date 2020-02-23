@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import AppHeader from '../../components/AppHeader';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import UsersList from '../../components/UsersList';
 import Pagination from '../../components/Pagination';
@@ -72,17 +73,20 @@ class UsersPage extends Component {
   render() {
     const { users, maxPage } = this.state;
     return (
-      <>
-        <div className={styles.container}>
-          <Breadcrumbs />
-        </div>
+      <div className={styles.usersPage}>
+        <AppHeader />
+        <main className={styles.main}>
+          <div className={styles.container}>
+            <Breadcrumbs />
+          </div>
 
-        <div className={styles.users}>
-          <UsersList users={users} onSelectUser={this.onSelectUser} />
-        </div>
-        <Pagination totalPages={maxPage} onChangePage={this.onChangePage} />
+          <div className={styles.users}>
+            <UsersList users={users} onSelectUser={this.onSelectUser} />
+          </div>
+          <Pagination totalPages={maxPage} onChangePage={this.onChangePage} />
+        </main>
         <Footer />
-      </>
+      </div>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import AppHeader from '../../components/AppHeader';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Statistic from '../../components/Statistic';
 import Footer from '../../components/Footer';
@@ -72,24 +73,27 @@ class UserPage extends Component {
   render() {
     const { user, clicks, views } = this.state;
     return (
-      <>
-        <div className={styles.container}>
-          <Breadcrumbs
-            item={{
-              to: `${user.id}`,
-              label: `${user.first_name} ${user.last_name}`
-            }}
-          />
-          <p className={styles.name}>
-            <span>{user.first_name} </span>
-            <span>{user.last_name}</span>
-          </p>
-        </div>
+      <div className={styles.userPage}>
+        <AppHeader />
+        <main className={styles.main}>
+          <div className={styles.container}>
+            <Breadcrumbs
+              item={{
+                to: `${user.id}`,
+                label: `${user.first_name} ${user.last_name}`
+              }}
+            />
+            <p className={styles.name}>
+              <span>{user.first_name} </span>
+              <span>{user.last_name}</span>
+            </p>
+          </div>
 
-        {clicks.length > 0 && <Statistic data={clicks} title="Clicks" />}
-        {views.length > 0 && <Statistic data={views} title="Views" />}
+          {clicks.length > 0 && <Statistic data={clicks} title="Clicks" />}
+          {views.length > 0 && <Statistic data={views} title="Views" />}
+        </main>
         <Footer />
-      </>
+      </div>
     );
   }
 }
